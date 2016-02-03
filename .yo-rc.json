@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "ligabalon",
+    "packageName": "liga",
+    "packageFolder": "liga",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": true,
+    "rememberMeKey": "b9930fe53a1e2a05605d4807b5a008a9185a8dca",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}
