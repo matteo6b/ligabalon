@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="jugador=[
+{nombre:'mateo',posicion:'base',nacimiento:'22/09/1991',canastas:'90'},
+{nombre:'curry',posicion:'pivot',nacimiento:'31/12/1992',canastas:'200'},
+{nombre:'thomson',posicion:'escolta',nacimiento:'02/01/1975',canastas:'400'}]">
+
+<p>Looping with objects:</p>
+<ul>
+  <li ng-repeat="jugadors in jugador">
+  {{ jugadors.nombre + ', ' + jugadors.posicion + ', ' + jugadors.nacimiento  + ', ' + jugadors.canastas}}</li>
+</ul>
+
+</div>
+
+</body>
+</html>

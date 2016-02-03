@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+
+<p>Looping los jugadores:</p>
+<ul>
+  <li ng-repeat="jugadors in jugadores | orderBy:'canastas'">
+ {{ jugadors.nombre + ', ' + jugadors.posicion + ', ' + jugadors.nacimiento  + ', ' + jugadors.canastas}}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.jugadores = [
+    {nombre:'mateo',posicion:'base',nacimiento:'22/09/1991',canastas:'90'},
+{nombre:'curry',posicion:'pivot',nacimiento:'31/12/1992',canastas:'200'},
+{nombre:'thomson',posicion:'escolta',nacimiento:'02/01/1975',canastas:'400'},
+{nombre:'paul',posicion:'pivot',nacimiento:'02/03/1987',canastas:'900'},
+{nombre:'green',posicion:'ala-pivot',nacimiento:'12/05/1991',canastas:'600'}
+        ];
+});
+</script>

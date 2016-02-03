@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, td  {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="ligabalonApp" ng-controller="controladorget">
+
+
+    <table>
+        <tr>
+            <th ng-click="orderByMe('nombre')">Nombre</th>
+            <th ng-click="orderByMe('posicion')">Posicion</th>
+            <th ng-click="orderByMe('canastasTotales')">canastas Totales</th>
+        </tr>
+        <tr ng-repeat="x in jugadores  | orderBy:myOrderBy">
+            <td>{{x.nombre}}</td>
+            <td>{{x.posicion}}</td>
+            <td>{{x.canastas_totales}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var app = angular.module('ligabalonApp', []);
+    app.controller('controladorget', function($scope, $http) {
+        $http.get("/api/jugadors").then(function (response) {
+            $scope.jugadores = response.data;
+
+            $scope.orderByMe = function(x) {
+                $scope.myOrderBy = x;
+            }
+
+
+        });
+    });
+</script>
+
+</body>
+
+</html>

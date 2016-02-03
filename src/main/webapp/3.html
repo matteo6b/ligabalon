@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="jugador={nombre:'mateo',posicion:'base',nacimiento:'22/09/2015',canastas:'9'}">
+
+<p>el nombre es {{ jugador.nombre }}</p>
+<p>la posicion es {{ jugador.posicion }}</p>
+<p>la fecha es {{ jugador.nacimiento | date : fulldate}}</p>
+<p>el numero de canastas es {{ jugador.canastas}}</p>
+
+</div>
+
+</body>
+</html>

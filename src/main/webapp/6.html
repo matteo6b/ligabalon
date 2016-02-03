@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Escribe el nombre del jugador</p>
+<p>Nombre: <input type="text" ng-model="nombre"></p>
+<p>{{nombre}}</p>
+
+<p>Escribe la posicion del jugador</p>
+<p>Posicion: <input type="text" ng-model="posicion"></p>
+<p>{{posicion}}</p>
+<p>Escribe la fecha del  jugador</p>
+<p>Fecha Nacimiento: <input type="date" id="date" ng-model="nacimiento"  ></p>
+<p>{{ nacimiento | date : fulldate}}</p>
+
+
+<p>Escribe el numero de canastas del  jugador</p>
+<p>Numero De Canastas: <input type="number" ng-model="numero"></p>
+<p>{{ numero}}</p>
+
+</div>
+
+<script>
+		 
+
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$filter) {
+     $scope.nombre= "curry";
+    $scope.posicion= "Base";
+	$scope.nacimiento=  new Date(2013, 9, 22);
+	$scope.numero= 99;
+});
+</script>
+
+</body>
+</html>
