@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface JugadorRepository extends JpaRepository<Jugador,Long> {
 
+    public List<Jugador> findBycanastasTotalesGreaterThan(Integer canastasTotales);
+
+
 }

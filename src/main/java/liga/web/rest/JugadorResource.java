@@ -98,6 +98,21 @@ public class JugadorResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    /**
+     * GET  maximo numero de canastas.
+     */
+
+    @RequestMapping(value = "/canstasTop/{canastas}")
+    @Timed
+    public ResponseEntity<List<Jugador>> getJugadorTop(@PathVariable int canastas) {
+
+
+        List<Jugador> topJugador = jugadorRepository.findBycanastasTotalesGreaterThan(canastas);
+
+        return new ResponseEntity<>(topJugador, HttpStatus.OK);
+    }
+
+
 
     /**
      * DELETE  /jugadors/:id -> delete the "id" jugador.
