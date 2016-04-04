@@ -4,6 +4,7 @@ angular.module('ligabalonApp')
     .factory('Equipo', function ($resource, DateUtils) {
         return $resource('api/equipos/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'topbyEquipo': { method: 'GET', isArray: true, url: 'api/equipos/:id/:canastas'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -2,6 +2,7 @@ package liga.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import liga.domain.Equipo;
+import liga.domain.Jugador;
 import liga.repository.EquipoRepository;
 import liga.web.rest.util.HeaderUtil;
 import liga.web.rest.util.PaginationUtil;
@@ -32,6 +33,8 @@ public class EquipoResource {
 
     @Inject
     private EquipoRepository equipoRepository;
+
+
 
     /**
      * POST  /equipos -> Create a new equipo.
@@ -111,4 +114,30 @@ public class EquipoResource {
         equipoRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("equipo", id.toString())).build();
     }
+
+
+
+    @RequestMapping(value = "/equipos/{id}/{canastas}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Jugador>> jugadorMasVeterano(@PathVariable Long id,@PathVariable int canastas) {
+        log.debug("REST request to get Equipo : {}", id,canastas);
+
+        Equipo equipo = equipoRepository.findOne(id);
+
+        if(equipo == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<Jugador> jugadores = equipoRepository.findByEquipoOrderByCanastasTotales(id,canastas);
+
+        return new ResponseEntity<>(
+            jugadores,
+            HttpStatus.OK);
+    }
+
+
+
+
 }

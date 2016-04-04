@@ -1,0 +1,59 @@
+<style>
+    table, th , td  {
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>
+
+<div class="well">
+
+    Equipos: <select ng-model="selected" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required">
+    <option value=""></option>
+    <option ng-repeat="equipo in equipos" value="{{equipo.id}}">{{equipo.nombre}}</option>
+</select>
+
+
+
+    <br/><br/>
+
+
+    <form name="formJugador" >
+        CanastasTotales: <input type="number" name="canastasTotales" ng-model="canastasTotales" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" required/>
+
+        <br/>
+        <button type="submit" ng-disabled="formJugador.$invalid || isSaving" class="btn btn-primary"  ng-click="a(selected,canastasTotales);" >
+            <span>Save</span>
+        </button>
+    </form>
+
+    </form>
+
+
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th  ng-click="orderByMe('nombre')">Nombre</th>
+            <th ng-click="orderByMe('posicion')">Posicion</th>
+            <th   ng-click="orderByMe('cansatasTotales')">Canastas Totales</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="jugador in topcanastas | orderBy:myOrderBy ">
+            <td >{{jugador.nombre}}</td>
+
+
+            <td  >{{jugador.posicion}}</td>
+
+            <td> {{jugador.canastasTotales}}</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>

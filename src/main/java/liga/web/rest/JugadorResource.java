@@ -114,6 +114,9 @@ public class JugadorResource {
 
 
 
+
+
+
     /**
      * DELETE  /jugadors/:id -> delete the "id" jugador.
      */
